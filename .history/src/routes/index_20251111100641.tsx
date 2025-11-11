@@ -26,22 +26,13 @@ export default component$(() => {
             </h1>
           </div>
 
-          <ul class="hidden md:flex items-center gap-10 font-medium text-gray-600 relative">
-  {["Men", "Women", "Kids", "New Arrivals", "Sale"].map((item) => (
-    <li
-      key={item}
-      class="group cursor-pointer relative transition-all duration-300"
-    >
-      <span class="text-sm tracking-wide group-hover:text-black group-hover:font-semibold">
-        {item}
-      </span>
-
-      {/* الخط المتحرك تحت النص */}
-      <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-    </li>
-  ))}
-</ul>
-
+          <ul class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+            <li class="hover:text-red-600 transition cursor-pointer">Men</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Women</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Kids</li>
+            <li class="hover:text-red-600 transition cursor-pointer">New Arrivals</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Sale</li>
+          </ul>
 
           <div class="flex items-center gap-4">
             {/* Search */}
@@ -137,56 +128,33 @@ export default component$(() => {
       </section>
 
       {/* 🧩 SHOP BY CATEGORY */}
-<section class="max-w-7xl mx-auto py-20 px-6 md:px-10">
-  <h2 class="text-3xl font-bold mb-12 flex items-center gap-3 text-gray-900">
-    <span class="text-2xl">🔥</span> Shop by Category
-  </h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    {[
-      {
-        name: "Running",
-        img: "/img/running.jpg",
-        gradient: "from-pink-500/70 to-purple-600/70",
-      },
-      {
-        name: "Basketball",
-        img: "/img/basketball.jpg",
-        gradient: "from-orange-500/70 to-yellow-500/70",
-      },
-      {
-        name: "Jordan",
-        img: "/img/jordan.jpg",
-        gradient: "from-red-600/70 to-black/70",
-      },
-    ].map((c) => (
-      <div
-        key={c.name}
-        class="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
-      >
-        {/* الصورة الخلفية */}
-        <img
-          src={c.img}
-          alt={c.name}
-          class="w-full h-[320px] object-cover transform group-hover:scale-110 transition-transform duration-700"
-        />
-
-        {/* طبقة اللون */}
-        <div
-          class={`absolute inset-0 bg-gradient-to-t ${c.gradient} opacity-60 group-hover:opacity-80 transition-opacity duration-500`}
-        ></div>
-
-        {/* المحتوى بدون أيقونة */}
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-          <h3 class="text-2xl font-bold tracking-wide">{c.name}</h3>
-          <div class="mt-1 h-[2px] w-0 bg-white/80 group-hover:w-16 transition-all duration-500"></div>
+      <section class="max-w-7xl mx-auto py-20 px-6 md:px-10">
+        <h2 class="text-3xl font-bold mb-10 text-gray-900">🔥 Shop by Category</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          {[
+            { name: "Running", img: "/img/running.jpg" },
+            { name: "Basketball", img: "/img/basketball.jpg" },
+            { name: "Jordan", img: "/img/jordan.jpg" },
+          ].map((c) => (
+            <div class="relative group cursor-pointer overflow-hidden rounded-2xl" key={c.name}>
+              <img
+                src={c.img}
+                alt={c.name}
+                class="rounded-2xl w-full h-[300px] object-cover group-hover:scale-110 transition-all duration-500"
+              />
+              <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"></div>
+              <p class="absolute bottom-6 left-6 text-white text-2xl font-bold drop-shadow-md tracking-wide flex items-center gap-2">
+                {/* Category small icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                {c.name}
+              </p>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-
+      </section>
 
       {/* 💬 TESTIMONIALS */}
       <section class="bg-gradient-to-b from-white to-gray-50 py-20">
@@ -208,43 +176,21 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* 📬 NEWSLETTER - FIXED VISIBILITY */}
-<section class="relative overflow-hidden bg-gradient-to-r from-[#0b0b0b] to-[#141414] text-white py-16 px-6 text-center">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_70%)]"></div>
-
-  <div class="relative z-10 max-w-2xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-3 tracking-tight">
-      <span class="text-white">Join the</span>{' '}
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-400 to-white">
-        Movement
-      </span>
-    </h2>
-
-    <p class="text-gray-400 mb-6 text-base">
-      Get early access to new drops and exclusive offers.
-    </p>
-
-    <form class="flex flex-col sm:flex-row justify-center items-center gap-3">
-      <input
-        type="email"
-        placeholder="Your email"
-        class="w-full sm:w-80 px-4 py-2.5 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 transition-all"
-        required
-      />
-      <button
-        type="submit"
-        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
-      >
-        Subscribe
-      </button>
-    </form>
-
-    <p class="text-gray-500 text-xs mt-4">
-      No spam — unsubscribe anytime.
-    </p>
-  </div>
-</section>
-
+      {/* 📬 NEWSLETTER */}
+      <section class="bg-black text-white py-16 text-center">
+        <h2 class="text-3xl font-bold mb-4">Stay in the Loop</h2>
+        <p class="text-gray-300 mb-6">Get exclusive access to new arrivals & special offers</p>
+        <div class="flex justify-center">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="px-4 py-3 w-72 rounded-l-full text-black focus:outline-none"
+          />
+          <button class="bg-red-600 hover:bg-red-700 px-6 rounded-r-full font-semibold transition-all">
+            Subscribe
+          </button>
+        </div>
+      </section>
 
       {/* ⚓ FOOTER */}
       <footer class="border-t border-gray-200 bg-white mt-20 py-10 text-center">

@@ -26,22 +26,13 @@ export default component$(() => {
             </h1>
           </div>
 
-          <ul class="hidden md:flex items-center gap-10 font-medium text-gray-600 relative">
-  {["Men", "Women", "Kids", "New Arrivals", "Sale"].map((item) => (
-    <li
-      key={item}
-      class="group cursor-pointer relative transition-all duration-300"
-    >
-      <span class="text-sm tracking-wide group-hover:text-black group-hover:font-semibold">
-        {item}
-      </span>
-
-      {/* الخط المتحرك تحت النص */}
-      <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-    </li>
-  ))}
-</ul>
-
+          <ul class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+            <li class="hover:text-red-600 transition cursor-pointer">Men</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Women</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Kids</li>
+            <li class="hover:text-red-600 transition cursor-pointer">New Arrivals</li>
+            <li class="hover:text-red-600 transition cursor-pointer">Sale</li>
+          </ul>
 
           <div class="flex items-center gap-4">
             {/* Search */}
@@ -176,16 +167,31 @@ export default component$(() => {
           class={`absolute inset-0 bg-gradient-to-t ${c.gradient} opacity-60 group-hover:opacity-80 transition-opacity duration-500`}
         ></div>
 
-        {/* المحتوى بدون أيقونة */}
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+        {/* المحتوى */}
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10 flex justify-between items-center">
           <h3 class="text-2xl font-bold tracking-wide">{c.name}</h3>
-          <div class="mt-1 h-[2px] w-0 bg-white/80 group-hover:w-16 transition-all duration-500"></div>
+          <div class="bg-white/20 rounded-full p-3 backdrop-blur-md group-hover:bg-white/40 transition-all">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
         </div>
+
+        {/* تأثير من تحت */}
+        <div class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-white/20 via-white/60 to-white/20 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
       </div>
     ))}
   </div>
 </section>
-
 
 
       {/* 💬 TESTIMONIALS */}
@@ -208,39 +214,34 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* 📬 NEWSLETTER - FIXED VISIBILITY */}
-<section class="relative overflow-hidden bg-gradient-to-r from-[#0b0b0b] to-[#141414] text-white py-16 px-6 text-center">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_70%)]"></div>
+      {/* 📬 NEWSLETTER */}
+<section class="bg-gradient-to-r from-black via-gray-900 to-black text-white py-20 text-center relative overflow-hidden">
+  {/* خطوط ديكور خفيفة */}
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,_#ff0000_0%,_transparent_40%)]"></div>
 
-  <div class="relative z-10 max-w-2xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-3 tracking-tight">
-      <span class="text-white">Join the</span>{' '}
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-400 to-white">
-        Movement
-      </span>
-    </h2>
-
-    <p class="text-gray-400 mb-6 text-base">
-      Get early access to new drops and exclusive offers.
+  <div class="relative z-10 max-w-2xl mx-auto px-6">
+    <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Stay in the Loop</h2>
+    <p class="text-gray-300 mb-8 text-lg">
+      Get exclusive access to new arrivals & special offers
     </p>
 
-    <form class="flex flex-col sm:flex-row justify-center items-center gap-3">
+    <form class="flex flex-col sm:flex-row justify-center items-center gap-4">
       <input
         type="email"
-        placeholder="Your email"
-        class="w-full sm:w-80 px-4 py-2.5 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 transition-all"
+        placeholder="Enter your email address"
+        class="w-full sm:w-72 md:w-96 px-5 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner"
         required
       />
       <button
         type="submit"
-        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded-full shadow-md transition-all active:scale-95"
+        class="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-full font-semibold text-white transition-all shadow-lg hover:shadow-red-500/30"
       >
         Subscribe
       </button>
     </form>
 
-    <p class="text-gray-500 text-xs mt-4">
-      No spam — unsubscribe anytime.
+    <p class="text-sm text-gray-500 mt-6">
+      No spam, we promise 💌 — unsubscribe anytime.
     </p>
   </div>
 </section>

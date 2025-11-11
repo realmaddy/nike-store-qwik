@@ -176,16 +176,31 @@ export default component$(() => {
           class={`absolute inset-0 bg-gradient-to-t ${c.gradient} opacity-60 group-hover:opacity-80 transition-opacity duration-500`}
         ></div>
 
-        {/* المحتوى بدون أيقونة */}
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+        {/* المحتوى */}
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10 flex justify-between items-center">
           <h3 class="text-2xl font-bold tracking-wide">{c.name}</h3>
-          <div class="mt-1 h-[2px] w-0 bg-white/80 group-hover:w-16 transition-all duration-500"></div>
+          <div class="bg-white/20 rounded-full p-3 backdrop-blur-md group-hover:bg-white/40 transition-all">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
         </div>
+
+        {/* تأثير من تحت */}
+        <div class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-white/20 via-white/60 to-white/20 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
       </div>
     ))}
   </div>
 </section>
-
 
 
       {/* 💬 TESTIMONIALS */}

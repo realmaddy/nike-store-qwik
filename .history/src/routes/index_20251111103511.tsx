@@ -17,16 +17,7 @@ export default component$(() => {
     <main class="bg-[#f8f9fa] text-gray-900 font-sans min-h-screen">
 
       {/* 🔝 NAVBAR */}
-      <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-10 py-4">
-          <div class="flex items-center gap-2">
-            <img src="/img/nike-logo.png" alt="Nike Logo" class="w-10 h-10 object-contain" />
-            <h1 class="text-2xl font-extrabold tracking-tight text-black">
-              NIKE<span class="text-red-600">Store</span>
-            </h1>
-          </div>
-
-          <ul class="hidden md:flex items-center gap-10 font-medium text-gray-600 relative">
+      <ul class="hidden md:flex items-center gap-10 font-medium text-gray-600 relative">
   {["Men", "Women", "Kids", "New Arrivals", "Sale"].map((item) => (
     <li
       key={item}
@@ -42,15 +33,6 @@ export default component$(() => {
   ))}
 </ul>
 
-
-          <div class="flex items-center gap-4">
-            {/* Search */}
-            <div class="relative hidden sm:block">
-              <input
-                type="text"
-                placeholder="Search Nike shoes..."
-                class="border border-gray-300 rounded-full pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
               {/* New Search Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,16 +158,31 @@ export default component$(() => {
           class={`absolute inset-0 bg-gradient-to-t ${c.gradient} opacity-60 group-hover:opacity-80 transition-opacity duration-500`}
         ></div>
 
-        {/* المحتوى بدون أيقونة */}
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+        {/* المحتوى */}
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white z-10 flex justify-between items-center">
           <h3 class="text-2xl font-bold tracking-wide">{c.name}</h3>
-          <div class="mt-1 h-[2px] w-0 bg-white/80 group-hover:w-16 transition-all duration-500"></div>
+          <div class="bg-white/20 rounded-full p-3 backdrop-blur-md group-hover:bg-white/40 transition-all">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
         </div>
+
+        {/* تأثير من تحت */}
+        <div class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-white/20 via-white/60 to-white/20 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
       </div>
     ))}
   </div>
 </section>
-
 
 
       {/* 💬 TESTIMONIALS */}
