@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* ✅ خلفية عامة */
+body {
+  background-color: #f9fafb;
+  color: #111827;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ✅ Animation ديال الفوق والتحت */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ✅ تصميم خفيف للعناوين */
+h1, h2, h3 {
+  color: #111827;
+}
+
+/* ✅ زر عام */
+button {
+  transition: all 0.3s ease;
+}
